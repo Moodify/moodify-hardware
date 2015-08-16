@@ -27,14 +27,17 @@ board.on("ready", function () {
 
 		if(Math.abs(currentLightLevel - lightVal) > 10) {
 
-			if(currentLightLevel > 1020) {
-				mood = "jazz";
+			if(currentLightLevel < 300) {
+				mood = "happy";
 			}
-			else if (currentLightLevel > 900 && currentLightLevel < 1019) {
+			else if(currentLightLevel > 301 && currentLightLevel < 700) {
 				mood = "tbt";
 			}
+			else if(currentLightLevel > 701) {
+				mood = "jazz";
+			}
 			else {
-				mood = "happy";
+				mood = "ganster";
 			}
 
 			fetch("http://192.168.3.163:3000/mood/"+mood)
