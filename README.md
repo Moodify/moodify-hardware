@@ -2,3 +2,4 @@
 Arduino stuff. 
 
 
+![#](./photoresistor-diagram.png)
