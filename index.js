@@ -25,22 +25,24 @@ board.on("ready", function () {
 		var lightVal = this.value;
 		console.log(lightVal);
 
-		if(Math.abs(currentLightLevel - lightVal) > 10) {
+		if(Math.abs(currentLightLevel - lightVal) > 40) {
 
-			if(currentLightLevel < 300) {
+			if(currentLightLevel < 250) {
 				mood = "happy";
 			}
-			else if(currentLightLevel > 301 && currentLightLevel < 700) {
+			else if(currentLightLevel > 250 && currentLightLevel < 500) {
 				mood = "tbt";
 			}
-			else if(currentLightLevel > 701) {
+			else if(currentLightLevel > 501) {
 				mood = "jazz";
 			}
 			else {
 				mood = "ganster";
 			}
 
-			fetch("http://192.168.3.163:3000/mood/"+mood)
+			console.log(mood);
+
+			fetch("http://10.0.0.27:3000/mood/"+mood)
 				.then(function(res) { return res.json(); })
 				.then(function(json){ resolveJSON(json); });
 
